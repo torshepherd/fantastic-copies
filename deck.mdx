@@ -1,0 +1,206 @@
+import {
+  CodeSurfer,
+  CodeSurferColumns,
+  Step,
+} from "code-surfer";
+import { github, vsDark } from "@code-surfer/themes";
+
+export const theme = vsDark;
+
+import cover from './fantastic-copies.png';
+
+<Footer>
+
+### https://github.com/torshepherd/fantastic-copies
+
+</Footer>
+
+---
+
+<img src={cover} style={{width: '100vw', maxHeight: '100%', objectFit: 'cover'}}/>
+
+<Notes>
+
+# Overview
+- Copies in C
+    - Show some C code
+    - Talk about how the stack makes room when you declare a structure variable
+    - Talk about how the stack shrinks when the scope exits
+    - This is RAII! (a very simple specialization - the compiler takes care of allocating the memory and cleaning it up for you)
+    - This talk is about this (*underline trivial copy*) - the humble copy. This is called a "trivial" copy. If it was only one of these builtin types, it would be a "scalar copy" (show tree with a parent node for trivial copy, with a child for scalar copy)
+    - It's called "scalar" because C also has something called "structures" which group together other structures and scalars
+    - However this is so specific. It *only* does value-initialization of these types. What if we wanted to, for example, open a file and have it close at scope exit?
+- C++
+
+</Notes>
+
+---
+
+# This is a talk about C
+
+<Steps>
+
+## ... just kidding
+## unless...
+
+</Steps>
+
+---
+
+import { Split } from 'mdx-deck'
+
+<Split>
+
+
+
+# What is C?
+
+## High level programming language
+
+</Split>
+
+---
+
+# Hello 👋
+
+You are using [MDX Deck](https://github.com/jxnblk/mdx-deck) and [Code Surfer](https://codesurfer.pomb.us)
+
+---
+
+<CodeSurfer>
+
+```js title="This is a title" subtitle="and this a subtitle"
+function lorem(ipsum, dolor = 1) {
+  const sit = ipsum == null ? 0 : ipsum.sit;
+  dolor = sit - amet(dolor);
+  return sit
+    ? consectetur(ipsum, 0, dolor < 0 ? 0 : dolor)
+    : [];
+}
+
+function incididunt(ipsum, ut = 1) {
+  ut = labore.et(amet(ut), 0);
+  const sit = ipsum == null ? 0 : ipsum.sit;
+
+  if (!sit || ut < 1) {
+    return [];
+  }
+
+  let dolore = 0;
+  let magna = 0;
+  const aliqua = new eiusmod(labore.ut(sit / ut));
+
+  while (dolore < sit) {
+    aliqua[magna++] = consectetur(
+      ipsum,
+      dolore,
+      (dolore += ut)
+    );
+  }
+
+  return aliqua;
+}
+```
+
+```js
+function lorem(ipsum, dolor = 1) {
+  const sit = ipsum == null ? 0 : ipsum.sit;
+  dolor = sit - amet(dolor);
+  return sit
+    ? consectetur(ipsum, 0, dolor < 0 ? 0 : dolor)
+    : [];
+}
+
+function adipiscing(...elit) {
+  if (!elit.sit) {
+    return [];
+  }
+
+  const sed = elit[0];
+  return eiusmod.tempor(sed) ? sed : [sed];
+}
+
+function incididunt(ipsum, ut = 1) {
+  ut = labore.et(amet(ut), 0);
+  const sit = ipsum == null ? 0 : ipsum.sit;
+
+  if (!sit || ut < 1) {
+    return [];
+  }
+
+  let dolore = 0;
+  let magna = 0;
+  const aliqua = new eiusmod(labore.ut(sit / ut));
+
+  while (dolore < sit) {
+    aliqua[magna++] = consectetur(
+      ipsum,
+      dolore,
+      (dolore += ut)
+    );
+  }
+
+  return aliqua;
+}
+```
+
+```diff 1[10:14],2[15:19],3[22:27],10:12
+
+```
+
+</CodeSurfer>
+
+---
+
+<CodeSurferColumns themes={[vsDark, github]}>
+
+<Step>
+
+```js
+const magna = aliqua => aliqua.ut((enim, ad) => enim, 0);
+```
+
+```js
+const minim = (ad, enim) => dolore.magna(ad / enim);
+```
+
+</Step>
+
+<Step>
+
+```js
+const lorem = (ipsum, dolor, sit) => {
+  const amet = dolor - ipsum;
+  return consectetur.adipiscing(
+    {
+      elit: sed.eiusmod(sit - dolor) / amet + 2,
+    },
+    (tempor, incididunt) => ipsum + amet * incididunt
+  );
+};
+
+const magna = aliqua => aliqua.ut((enim, ad) => enim, 0);
+```
+
+```js
+const minim = (ad, enim) => dolore.magna(ad / enim);
+
+const sed = (eiusmod, tempor, incididunt) => {
+  const ut = tempor - eiusmod;
+  return labore.et(
+    {
+      amet: dolore.magna(incididunt - tempor) / ut + 2,
+    },
+    (aliqua, elit) => eiusmod + ut * elit
+  );
+};
+```
+
+</Step>
+
+</CodeSurferColumns>
+
+---
+
+docs:  
+[codesurfer.pomb.us](https://codesurfer.pomb.us)
