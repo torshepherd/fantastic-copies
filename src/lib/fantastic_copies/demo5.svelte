@@ -25,7 +25,7 @@
 <div class="grow flex gap-4">
   <Code
     lang="cpp"
-    lines="1-7|2|3|4|5"
+    lines="1-11|2|3|4|5"
     steps={[
       ['2', async () => await stackPointer.to({ x: 180, textOpacity1: 1 })],
       [
@@ -64,14 +64,18 @@
     class="basis-[500px] mt-[50px] ml-[50px] grow"
   >
     {`
-			void foo() {
-			  vector<vector<int>> v{};
-			  v.emplace_back();
-			  v.back().push_back(33);
-			  v.emplace_back();
-			  return;
-			}
-        `}
+    struct S {
+      int i;
+      double j;
+      char k;
+    };
+
+    void foo() {
+      vector<S> v;
+      v.resize(4);
+      v.resize(8);
+    }
+    `}
   </Code>
   <svg
     data-id="animation"
