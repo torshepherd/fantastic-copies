@@ -32,6 +32,7 @@
 		"@fontsource-variable/jetbrains-mono": "^5.0.19",
 		"@fontsource-variable/manrope": "^5.0.18",
 		"d3-interpolate": "^3.0.1",
-		"reveal.js": "^5.0.4"
+		"reveal.js": "^5.0.4",
+		"svelvet": "^10.0.2"
 	}
 }

@@ -8,13 +8,16 @@
     Step,
     Notes,
   } from '@components'
-  import { signal } from '@motion'
+  import { animate, signal } from '@motion'
   import SlideTitle from './slideTitle.svelte'
   import BoxedText from './boxedText.svelte'
   import Demo1 from '@lib/fantastic_copies/demo1.svelte'
   import Demo2 from '@lib/fantastic_copies/demo2.svelte'
   import Demo3 from '@lib/fantastic_copies/demo3.svelte'
   import Demo4 from '@lib/fantastic_copies/demo4.svelte'
+  import Tree from '@lib/fantastic_copies/tree3.svelte'
+  import Tree1 from '@lib/fantastic_copies/tree1.svelte'
+  import Tree2 from '@lib/fantastic_copies/tree2.svelte'
 
   const circle = signal(
     { x: 0, y: 0, r: 80, fill: '#00ffff' },
@@ -61,10 +64,146 @@
     </div>
   </Slide> -->
 
-  <Slide animate class="h-[600px] flex flex-col">
-    <SlideTitle>Stack variables in C</SlideTitle>
-    <Demo1 />
+  <Slide animate class="h-[600px] flex flex-col justify-center">
+    <div class="grow flex gap-4 justify-center">
+      <div class="flex flex-col justify-center">
+        <img
+          class="h-[250px] w-full object-cover rounded-3xl"
+          alt=""
+          data-src="static/IMG_4084.jpg"
+        />
+        <p class="mt-[20px] text-2xl">Tor Shepherd</p>
+        <p class="mt-[20px] text-xl">Motion Planning</p>
+        <p class="mt-[-8px] text-xl flex gap-1 justify-center">
+          @ Motional <img
+            data-src="static/motional.png"
+            alt=""
+            class="h-[14px] mt-2"
+          />
+        </p>
+      </div>
+    </div>
   </Slide>
+
+  <Slide animate class="h-[600px] flex flex-col justify-center">
+    <div class="grow flex gap-4 justify-center">
+      <div class="flex flex-col justify-center">
+        <img
+          class="h-[250px] w-full object-cover rounded-3xl"
+          alt=""
+          data-src="static/IMG_4084.jpg"
+        />
+        <p class="mt-[20px] text-2xl">Tor Shepherd</p>
+        <p class="mt-[20px] text-xl">Motion Planning</p>
+        <p class="mt-[-8px] text-xl flex gap-1 justify-center">
+          @ Motional <img
+            data-src="static/motional.png"
+            alt=""
+            class="h-[14px] mt-2"
+          />
+        </p>
+      </div>
+      <div class="flex flex-col justify-center">
+        <Code lang="cpp" class="grow ml-[80px] mt-[200px]">
+          {`
+          // Why do we use C++ ?
+          `}
+        </Code>
+      </div>
+    </div>
+  </Slide>
+
+  <Slide animate class="h-[600px] flex flex-col justify-center">
+    <div class="grow flex gap-4 justify-center">
+      <div class="flex flex-col justify-center">
+        <img
+          class="h-[250px] w-full object-cover rounded-3xl"
+          alt=""
+          data-src="static/IMG_4084.jpg"
+        />
+        <p class="mt-[20px] text-2xl">Tor Shepherd</p>
+        <p class="mt-[20px] text-xl">Motion Planning</p>
+        <p class="mt-[-8px] text-xl flex gap-1 justify-center">
+          @ Motional <img
+            data-src="static/motional.png"
+            alt=""
+            class="h-[14px] mt-2"
+          />
+        </p>
+      </div>
+      <div class="flex flex-col justify-center">
+        <Code lang="cpp" class="grow ml-[80px] mt-[200px]">
+          {`
+          // Why do we use C++ ?
+
+          // Convenient?
+          // Fast?
+          `}
+        </Code>
+      </div>
+    </div>
+  </Slide>
+
+  <Slide animate class="h-[600px] flex flex-col justify-center">
+    <div class="grow flex gap-4 justify-center">
+      <div class="flex flex-col justify-center">
+        <img
+          class="h-[250px] w-full object-cover rounded-3xl"
+          alt=""
+          data-src="static/IMG_4084.jpg"
+        />
+        <p class="mt-[20px] text-2xl">Tor Shepherd</p>
+        <p class="mt-[20px] text-xl">Motion Planning</p>
+        <p class="mt-[-8px] text-xl flex gap-1 justify-center">
+          @ Motional <img
+            data-src="static/motional.png"
+            alt=""
+            class="h-[14px] mt-2"
+          />
+        </p>
+      </div>
+      <div class="flex flex-col justify-center">
+        <Code lang="cpp" class="grow ml-[80px] mt-[200px]">
+          {`
+          // Why do we use C++ ?
+
+          // Convenient to write
+          // Fast code
+          `}
+        </Code>
+      </div>
+    </div>
+    <Notes>
+      <br /> This talk is ostensibly about "copies in C++", but really it's about
+      this promise that C++ abstracts away the details of patterns we like in C,
+      but that are inconvenient to write in C
+    </Notes>
+  </Slide>
+
+  <Slide animate class="flex flex-col justify-center">
+    <div class="grow flex gap-4 justify-center">
+      <div class="basis-1/3 text-3xl">
+        Part I
+        <br />
+        <br />
+        Basic types of copies
+      </div>
+      <Step class="basis-1/3 text-3xl" fadeLeft>
+        Part II
+        <br />
+        <br />
+        Everything from Part I was wrong
+      </Step>
+      <Step class="basis-1/3 text-3xl" fadeLeft>
+        Part III
+        <br />
+        <br />
+        What can we do about it
+      </Step>
+    </div>
+  </Slide>
+
+  <Slide animate>Let's write some C 😎</Slide>
 
   <Slide animate class="h-[600px] flex flex-col">
     <SlideTitle>Scalar copies</SlideTitle>
@@ -457,26 +596,40 @@
   </Slide>
 
   <Slide animate class="h-[600px] flex flex-col">
-    <SlideTitle>The story so far</SlideTitle>
-    <div class="grow flex gap-4 justify-center">
-      <ul class="grow-0 mt-[50px] text-left">
-        <Step fadeUp><li class="list-disc">Scalar copies</li></Step>
-        <Step fadeUp><li class="list-disc">Trivial copies</li></Step>
-        <Step fadeUp><li class="list-disc">Moves</li></Step>
-        <Step fadeUp><li class="list-disc">Deep copies</li></Step>
-      </ul>
-    </div>
+    <SlideTitle>Family tree of copies</SlideTitle>
+    <Tree1 />
   </Slide>
 
-  <Slide animate>
-    <FitText class="">Fantastic Copies II:</FitText>
-    <FitText class="">The crimes of std::move</FitText>
+  <Slide animate class="flex flex-col">
+    <FitText class="">Part II: So that's it?</FitText>
+    <div class="flex gap-4 justify-center">
+      <Step fadeUp>
+        <img
+          class="mt-[50px] h-[200px] mx-auto"
+          data-src="static/yes-but-no.jpg"
+          alt="Well yes, but actually no"
+        />
+      </Step>
+    </div>
   </Slide>
 
   <Slide animate class="h-[600px] flex flex-col">
     <SlideTitle>Move Semantics 💔 Exceptions</SlideTitle>
     <div class="grow flex gap-4 justify-center">
-      <Code lang="cpp" class="grow-0 mt-[50px]">
+      <Code lang="cpp" class="grow-0 mt-[100px]">
+        {`
+        struct S {
+          std::vector<int> data;
+        };
+        `}
+      </Code>
+    </div>
+  </Slide>
+
+  <Slide animate class="h-[600px] flex flex-col">
+    <SlideTitle>Move Semantics 💔 Exceptions</SlideTitle>
+    <div class="grow flex gap-4 justify-center">
+      <Code lang="cpp" class="grow-0 mt-[100px]">
         {`
         struct S {
           S(const S&) = default;
@@ -491,7 +644,7 @@
   <Slide animate class="h-[600px] flex flex-col">
     <SlideTitle>Move Semantics 💔 Exceptions</SlideTitle>
     <div class="grow flex gap-4 justify-center">
-      <Code lang="cpp" class="grow-0 mt-[20px]" lines="1-14|9|10|11-12|3">
+      <Code lang="cpp" class="grow-0 mt-[20px]" lines="1-14|3">
         {`
         struct S {
           S(const S&) = default;
@@ -677,9 +830,11 @@
     </div>
   </Slide>
 
+  <Slide animate>🌊Ripple effects in the standard library🌊</Slide>
+
   <Slide animate class="h-[600px] flex flex-col">
     <SlideTitle
-      >shared_future::get()<img
+      >shared_future::get() copies<img
         data-src="static/notlikethis.png"
         class="h-10"
         alt=""
@@ -700,7 +855,7 @@
 
   <Slide animate class="h-[600px] flex flex-col">
     <SlideTitle
-      >shared_future::get()<img
+      >shared_future::get() copies<img
         data-src="static/notlikethis.png"
         class="h-10"
         alt=""
@@ -723,7 +878,7 @@
 
   <Slide animate class="h-[600px] flex flex-col">
     <SlideTitle
-      >shared_future::get()<img
+      >shared_future::get() copies<img
         data-src="static/notlikethis.png"
         class="h-10"
         alt=""
@@ -747,7 +902,7 @@
 
   <Slide animate class="h-[600px] flex flex-col">
     <SlideTitle
-      >shared_future::get()<img
+      >shared_future::get() copies<img
         data-src="static/notlikethis.png"
         class="h-10"
         alt=""
@@ -766,7 +921,7 @@
   <Slide animate class="h-[600px] flex flex-col">
     <SlideTitle>Surely this is fine...?</SlideTitle>
     <div class="grow flex gap-4 justify-center">
-      <Code lang="cpp" class="grow-0 mt-[50px]">
+      <Code lang="cpp" class="grow-0 mt-[100px]">
         {`
         void foo() {
           vector<vector<int>> v{{1, 2, 3}, {4, 5, 6}};
@@ -808,7 +963,7 @@
   </Slide>
 
   <Slide animate class="h-[600px] flex flex-col">
-    <SlideTitle>Wait...</SlideTitle>
+    <SlideTitle>So this...</SlideTitle>
     <div class="grow flex gap-4 justify-center">
       <Code lang="cpp" class="grow-0 mt-[50px]">
         {`
@@ -822,7 +977,7 @@
   </Slide>
 
   <Slide animate class="h-[600px] flex flex-col">
-    <SlideTitle>Wait...</SlideTitle>
+    <SlideTitle>... is equivalent to this</SlideTitle>
     <div class="grow flex gap-4 justify-center">
       <Code lang="cpp" class="grow-0 mt-[50px]">
         {`
@@ -840,7 +995,13 @@
   </Slide>
 
   <Slide animate class="h-[600px] flex flex-col">
-    <SlideTitle>Basic vector usage prevents move??</SlideTitle>
+    <SlideTitle
+      >vector(initializer_list) copies<img
+        data-src="static/notlikethis.png"
+        class="h-10"
+        alt=""
+      /></SlideTitle
+    >
     <div class="grow flex gap-4 justify-center">
       <Code lang="cpp" class="grow-0 mt-[50px]">
         {`
@@ -1168,7 +1329,31 @@
   </Slide> -->
 
   <Slide animate class="h-[600px] flex flex-col">
-    <SlideTitle>What does the compiler say?</SlideTitle>
+    <SlideTitle>Flashback: trivial copies</SlideTitle>
+    <div class="grow flex gap-4 justify-center">
+      <Code lang="c" lines="9-12" class="grow-0 mt-[20px]">
+        {`
+        struct S {
+          int i;
+          double j;
+          char k;
+        };
+
+        void foo() {
+          struct S object = {2, 3.14, 'n'};
+          struct S other;
+          other.i = object.i;
+          other.j = object.j;
+          other.k = object.k;
+          return;
+        }
+        `}
+      </Code>
+    </div>
+  </Slide>
+
+  <Slide animate class="h-[600px] flex flex-col">
+    <SlideTitle>What do trivial copies compile to?</SlideTitle>
     <div class="grow flex gap-4 justify-center">
       <Media
         class="h-full w-full"
@@ -1244,6 +1429,7 @@
           vector<S> v;
           v.resize(4);
           v.resize(8);
+          return;
         }
         `}
       </Code>
@@ -1267,6 +1453,7 @@
           // v.data = malloc(4 * 24)
           v.resize(8);
           // v.new_data = malloc(8 * 24)
+          return;
         }
         `}
       </Code>
@@ -1292,6 +1479,7 @@
           // v.new_data = malloc(8 * 24)
           // memcpy(v.new_data, v.data, 4 * sizeof(S))
           // v.data = v.new_data
+          return;
         }
         `}
       </Code>
@@ -1301,6 +1489,25 @@
   <Slide animate>We ❤️ bulk-<code>memcpy</code></Slide>
 
   <Slide animate class="h-[600px] flex flex-col">
+    <SlideTitle>What about movable types?</SlideTitle>
+    <div class="grow flex gap-4 justify-center">
+      <Code lang="cpp" class="grow-0 mt-[60px]">
+        {`
+        void foo() {
+          vector<vector<int>> v;
+          v.resize(4);
+          v.resize(8);
+          // For each element:
+          // - std::move()
+          // - ~vector<int>(nullptr)
+          return;
+        }
+        `}
+      </Code>
+    </div>
+  </Slide>
+
+  <Slide animate class="h-[600px] flex flex-col">
     <SlideTitle>Trivial relocation</SlideTitle>
     <div class="grow-0 flex gap-4 justify-center h-[300px]">
       <Code lang="cpp" class="grow-0 mt-[50px]">
@@ -1308,11 +1515,10 @@
         void foo() {
           vector<vector<int>> v;
           v.resize(4);
-          // v.data = malloc(4 * 24)
           v.resize(8);
-          // v.new_data = malloc(8 * 24)
           // memcpy(v.new_data, v.data, 4 * sizeof(vector<int>))
           // v.data = v.new_data
+          // prevent original destructors
         }
         `}
       </Code>
@@ -1333,7 +1539,7 @@
     </div>
   </Slide>
 
-  <Slide animate>You actually didn't want to move anyway</Slide>
+  <Slide animate>You actually didn't mean to move anyway</Slide>
 
   <Slide animate class="h-[600px] flex flex-col">
     <SlideTitle>What about function boundaries?</SlideTitle>
@@ -1387,7 +1593,7 @@
   </Slide>
 
   <Slide animate class="h-[600px] flex flex-col">
-    <SlideTitle>Actually, it <q>rebinds</q></SlideTitle>
+    <SlideTitle><q>Guaranteed copy elision</q></SlideTitle>
     <div class="grow flex gap-4 justify-center">
       <Code lang="cpp" class="grow-0 mt-[60px]">
         {`
@@ -1435,6 +1641,26 @@
         void barImpl(char* returnSlot) {
           new (&returnSlot) vector<int>(1, 2, 3);
           ((vector<int>*)returnSlot)->push_back(4);
+          return;
+        }
+        `}
+      </Code>
+    </div>
+  </Slide>
+
+  <Slide animate class="h-[600px] flex flex-col">
+    <SlideTitle>Not a copy in sight!</SlideTitle>
+    <div class="grow flex gap-4 justify-center">
+      <Code lang="cpp" class="grow-0 mt-[60px]">
+        {`
+        vector<int> bar() {
+          vector<int> temp{1, 2, 3};
+          temp.push_back(4);
+          return temp;
+        }
+
+        void foo() {
+          vector<int> v = bar();
         }
         `}
       </Code>
@@ -1443,7 +1669,53 @@
 
   <Slide animate>RVO is extremely easy to break</Slide>
 
-  <Slide animate>
+  <Slide animate class="h-[600px] flex flex-col">
+    <SlideTitle>Move Semantics 💔 RVO</SlideTitle>
+    <div class="grow flex gap-4 justify-center">
+      <Code lang="cpp" class="grow-0 mt-[60px]">
+        {`
+        vector<int> bar() {
+          vector<int> temp{1, 2, 3};
+          return std::move(temp);
+        }
+        `}
+      </Code>
+    </div>
+  </Slide>
+
+  <Slide animate class="h-[600px] flex flex-col">
+    <SlideTitle>Move Semantics 💔 RVO</SlideTitle>
+    <div class="grow flex gap-4 justify-center">
+      <Code lang="cpp" class="grow-0 mt-[60px]">
+        {`
+        vector<int> bar() {
+          vector<int> temp{1, 2, 3};
+          return std::move(temp);
+          // Return type is vector<int>,
+          // so we have to convert!
+        }
+        `}
+      </Code>
+    </div>
+  </Slide>
+
+  <Slide animate class="h-[600px] flex flex-col">
+    <SlideTitle><q>Can we have multiple returns?</q></SlideTitle>
+    <div class="grow flex gap-4 justify-center">
+      <Code lang="cpp" class="grow-0 mt-[60px]">
+        {`
+        vector<int>, vector<int> bar() {
+          vector<int> temp1{1, 2, 3};
+          vector<int> temp2{1, 2, 3};
+          return temp1, temp2;
+        }
+        `}
+      </Code>
+    </div>
+  </Slide>
+
+  <Slide animate class="h-[600px] flex flex-col">
+    <SlideTitle><q>We have multiple returns at home:</q></SlideTitle>
     <div class="grow flex gap-4 justify-center">
       <Code lang="cpp" class="grow-0 mt-[60px]">
         {`
@@ -1456,6 +1728,461 @@
       </Code>
     </div>
   </Slide>
+
+  <Slide animate class="h-[600px] flex flex-col">
+    <SlideTitle>No RVO? Maybe auto-move</SlideTitle>
+    <div class="grow flex gap-4 justify-center">
+      <Code lang="cpp" class="grow-0 mt-[60px]">
+        {`
+        vector<int> bar(bool cond) {
+          vector<int> temp1{1, 2, 3};
+          vector<int> temp2{1, 2, 3};
+          if (cond)
+            return temp1;
+          return temp2;
+        }
+        `}
+      </Code>
+    </div>
+  </Slide>
+
+  <Slide animate class="h-[600px] flex flex-col">
+    <SlideTitle>No RVO? Maybe auto-move</SlideTitle>
+    <div class="grow flex gap-4 justify-center">
+      <Code lang="cpp" class="grow-0 mt-[60px]">
+        {`
+        void barImpl(bool cond, char* returnSlot) {
+          vector<int> temp1{1, 2, 3};
+          vector<int> temp2{1, 2, 3};
+          if (cond) {
+            new (&returnSlot) vector<int>(temp1);
+            return;
+          }
+          new (&returnSlot) vector<int>(temp2);
+          return;
+        }
+        `}
+      </Code>
+    </div>
+  </Slide>
+
+  <Slide animate class="h-[600px] flex flex-col">
+    <SlideTitle>No RVO? Maybe auto-move</SlideTitle>
+    <div class="grow flex gap-4 justify-center">
+      <Code lang="cpp" class="grow-0 mt-[60px]">
+        {`
+        void barImpl(bool cond, char* returnSlot) {
+          vector<int> temp1{1, 2, 3};
+          vector<int> temp2{1, 2, 3};
+          if (cond) {
+            new (&returnSlot) vector<int>(std::move(temp1));
+            return;
+          }
+          new (&returnSlot) vector<int>(std::move(temp2));
+          return;
+        }
+        `}
+      </Code>
+    </div>
+  </Slide>
+
+  <Slide animate class="h-[600px] flex flex-col">
+    <SlideTitle>Family tree of copies</SlideTitle>
+    <Tree />
+  </Slide>
+
+  <Slide animate>
+    <FitText class="">Part III: Doing something about it</FitText>
+  </Slide>
+
+  <Slide animate class="h-[600px] flex flex-col">
+    <SlideTitle>How do we track down copies?</SlideTitle>
+    <div class="grow flex gap-4 justify-center">
+      <Code lang="cpp" class="grow-0 mt-[150px]">
+        {`
+        class PleaseDontCopy {
+          // ...
+        };
+        `}
+      </Code>
+    </div>
+  </Slide>
+
+  <Slide animate class="h-[600px] flex flex-col">
+    <SlideTitle>Delete the copy constructor</SlideTitle>
+    <div class="grow flex gap-4 justify-center">
+      <Code lang="cpp" class="grow-0 mt-[60px]">
+        {`
+        class PleaseDontCopy {
+          PleaseDontCopy(const PleaseDontCopy&) = delete;
+          // ...
+        };
+
+        void foo() {
+          PleaseDontCopy a{};
+          auto b = a; // error
+        }
+        `}
+      </Code>
+    </div>
+  </Slide>
+
+  <Slide animate class="h-[600px] flex flex-col">
+    <SlideTitle>Deprecate the copy constructor</SlideTitle>
+    <div class="grow flex gap-4 justify-center">
+      <Code lang="cpp" class="grow-0 mt-[60px]">
+        {`
+        class PleaseDontCopy {
+          [[deprecated]]
+          PleaseDontCopy(const PleaseDontCopy&) = default;
+          // ...
+        };
+
+        void foo() {
+          PleaseDontCopy a{};
+          auto b = a; // warning (-Wdeprecated-declarations)
+        }
+        `}
+      </Code>
+    </div>
+  </Slide>
+
+  <Slide animate class="h-[600px] flex flex-col">
+    <SlideTitle>Make copies explicit</SlideTitle>
+    <div class="grow-0 flex gap-4 justify-center">
+      <Code lang="cpp" class="grow-0 mt-[60px]">
+        {`
+        class PleaseDontCopy {
+          explicit
+          PleaseDontCopy(const PleaseDontCopy&) = default;
+          // ...
+        };
+
+        void foo() {
+          PleaseDontCopy a{};
+          auto b = PleaseDontCopy{a};
+        }
+        `}
+      </Code>
+    </div>
+    <div class="grow mt-[50px]">
+      <a
+        class="underline text-[var(--r-link-color)] text-lg"
+        href="https://www.youtube.com/watch?v=5wJ-jKK_Zy0"
+      >
+        C++ Weekly - Ep 241 - Using `explicit` to Find Expensive Accidental
+        Copies
+      </a>
+    </div>
+  </Slide>
+
+  <Slide animate class="h-[600px] flex flex-col">
+    <SlideTitle>Announce copies</SlideTitle>
+    <div class="grow flex gap-4 justify-center">
+      <Code lang="cpp" class="grow-0 mt-[10px]">
+        {`
+        class TraceMe {
+          TraceMe(const TraceMe&) {
+            std::println("Copied!");
+            PERFETTO_TRACE("Copied!");
+          }
+        };
+
+        class PleaseDontCopy : TraceMe {
+          // ...
+        };
+
+        void foo() {
+          PleaseDontCopy a{};
+          auto b = a; // prints at runtime
+        }
+        `}
+      </Code>
+    </div>
+  </Slide>
+
+  <Slide animate
+    >&lt;&lt;
+    <Step fadeLeft>(shift left, get it?)</Step>
+  </Slide>
+
+  <Slide animate class="h-[600px] flex flex-col">
+    <SlideTitle>Compiler warnings</SlideTitle>
+    <div class="grow-0 flex gap-4 justify-center">
+      <img
+        class="mt-[20px] h-[250px] mx-auto"
+        data-src="static/knives.jpg"
+        alt=""
+      />
+    </div>
+    <div class="grow flex gap-4 justify-center">
+      <ul class="grow-0 mt-[50px] text-left">
+        <Step fadeUp><li class="list-disc text-2xl">-Wmove</li></Step>
+        <Step fadeUp
+          ><li class="list-disc text-2xl">-Wlarge-by-value-copy</li></Step
+        >
+      </ul>
+    </div>
+  </Slide>
+
+  <Slide animate class="h-[600px] flex flex-col">
+    <SlideTitle>clang-tidy is awesome</SlideTitle>
+    <div class="grow flex gap-4 justify-center">
+      <Media
+        class="h-[500px] w-[800px]"
+        src="https://clang.llvm.org/extra/clang-tidy/checks/list.html#clang-tidy-checks"
+        type="iframe"
+        preload={true}
+      />
+    </div>
+  </Slide>
+
+  <Slide animate class="h-[600px] flex flex-col">
+    <SlideTitle>Missing check? No problem 😎</SlideTitle>
+    <div class="grow flex gap-4 justify-center">
+      <Media
+        class="h-[500px] w-[1600px]"
+        src="https://clang.llvm.org/extra/clang-tidy/Contributing.html#getting-involved"
+        type="iframe"
+        preload={true}
+      />
+    </div>
+  </Slide>
+
+  <Slide animate class="h-[600px] flex flex-col">
+    <SlideTitle>Missing check? No problem 😎</SlideTitle>
+    <div class="grow flex gap-4 justify-center">
+      <Code lines={null} lang="bash" class="grow-0 mt-[100px]">
+        {`
+        $ git clone https://github.com/llvm/llvm-project
+        $ cd llvm/clang-tools-extra
+        `}
+      </Code>
+    </div>
+  </Slide>
+
+  <Slide animate class="h-[600px] flex flex-col">
+    <SlideTitle>Missing check? No problem 😎</SlideTitle>
+    <div class="grow flex gap-4 justify-center">
+      <Code lines={null} lang="bash" class="grow-0 mt-[100px]">
+        {`
+        $ git clone https://github.com/llvm/llvm-project
+        $ cd llvm/clang-tools-extra
+        $ clang-tidy/add_new_check.py performance vector-init-list
+        # Creating clang-tidy/performance/VectorInitListCheck.cpp...
+        `}
+      </Code>
+    </div>
+  </Slide>
+
+  <Slide animate class="h-[600px] flex flex-col">
+    <SlideTitle>Test in clang-query</SlideTitle>
+    <div class="grow flex gap-4 justify-center">
+      <Code lang="cpp" class="grow-0 mt-[50px] text-sm">
+        {`
+        struct Test {
+          std::string Data;
+          int Data2;
+        };
+        
+        std::vector<Test> TestFn(int i) {
+          std::vector<std::string> V({"", "", {}});
+          std::vector<std::string> V1{"", ""};
+
+          return {{"hi", 1}, {}, {"there", 3}};
+        }
+        `}
+      </Code>
+    </div>
+  </Slide>
+
+  <Slide animate class="h-[600px] flex flex-col">
+    <SlideTitle>Test in clang-query</SlideTitle>
+    <div class="grow flex gap-4 justify-center">
+      <Code lines={null} lang="isbl" id="clang-query" class="grow-0 mt-[150px]">
+        {`
+        match cxxConstructExpr()
+        `}
+      </Code>
+      <Code lang="cpp" class="grow-0 mt-[50px] text-sm">
+        {`
+        struct Test {
+          std::string Data;
+          int Data2;
+        };
+
+        std::vector<Test> TestFn(int i) {
+          std::vector<std::string> V({"", "", {}});
+          //                       ^  ^   ^   ^
+          std::vector<std::string> V1{"", ""};
+          //                       ^  ^   ^
+
+          return {{"hi", 1}, {}, {"there", 3}};
+          //     ^^^         ^   ^^
+        }
+        `}
+      </Code>
+    </div>
+  </Slide>
+
+  <Slide animate class="h-[600px] flex flex-col">
+    <SlideTitle>Test in clang-query</SlideTitle>
+    <div class="grow flex gap-4 justify-center">
+      <Code lines={null} lang="isbl" id="clang-query" class="grow-0 mt-[130px]">
+        {`
+        match cxxConstructExpr(
+          has(cxxStdInitializerListExpr())
+        )
+        `}
+      </Code>
+      <Code lang="cpp" class="grow-0 mt-[50px] text-sm">
+        {`
+        struct Test {
+          std::string Data;
+          int Data2;
+        };
+
+        std::vector<Test> TestFn(int i) {
+          std::vector<std::string> V({"", "", {}});
+          //                       ^~~~~~~~~~~~~~~
+          std::vector<std::string> V1{"", ""};
+          //                       ^~~~~~~~~~
+
+          return {{"hi", 1}, {}, {"there", 3}};
+          //     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+        }
+        `}
+      </Code>
+    </div>
+  </Slide>
+
+  <Slide animate class="h-[600px] flex flex-col">
+    <SlideTitle>Test in clang-query</SlideTitle>
+    <div class="grow flex gap-4 justify-center">
+      <Code
+        lines={null}
+        lang="isbl"
+        id="clang-query"
+        class="grow-0 mt-[50px] text-sm"
+      >
+        {`
+        match cxxConstructExpr(
+          has(cxxStdInitializerListExpr()),
+          hasDeclaration(
+            cxxConstructorDecl(
+              ofClass(
+                cxxRecordDecl(
+                  classTemplateSpecializationDecl(
+                    hasName("::std::vector")
+                  )
+                )
+              )
+            )
+          )
+        )
+        `}
+      </Code>
+      <Code lang="cpp" class="grow-0 mt-[50px] text-sm">
+        {`
+        struct Test {
+          std::string Data;
+          int Data2;
+        };
+
+        std::vector<Test> TestFn(int i) {
+          std::vector<std::string> V({"", "", {}});
+          //                       ^~~~~~~~~~~~~~~
+          std::vector<std::string> V1{"", ""};
+          //                       ^~~~~~~~~~
+
+          return {{"hi", 1}, {}, {"there", 3}};
+          //     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+        }
+        `}
+      </Code>
+    </div>
+  </Slide>
+
+  <Slide animate class="h-[600px] flex flex-col">
+    <SlideTitle>Compile your own clang-tidy</SlideTitle>
+    <div class="grow flex gap-4 justify-center">
+      <Code lines={null} lang="bash" class="grow-0 mt-[100px]">
+        {`
+        $ git clone https://github.com/llvm/llvm-project
+        $ cd llvm/clang-tools-extra
+        $ clang-tidy/add_new_check.py performance vector-init-list
+        # Creating clang-tidy/performance/VectorInitListCheck.cpp...
+        $ cmake ... -DLLVM_ENABLE_PROJECTS="clang-tools-extra"
+        $ ninja install
+        `}
+      </Code>
+    </div>
+  </Slide>
+
+  <Slide animate class="h-[600px] flex flex-col">
+    <SlideTitle>Takeaways</SlideTitle>
+    <div class="grow flex gap-4 justify-center">
+      <ul class="grow-0 mt-[50px] text-left">
+        <Step fadeUp>
+          <li class="list-disc text-2xl">
+            Design the system to avoid dynamic ownership of data
+          </li>
+          <li class="text-2xl">
+            (Do like llama.cpp does! <code>mmap</code> your data into the program
+          </li>
+          <li class="text-2xl">and leave it there!)</li>
+        </Step>
+        <Step fadeUp>
+          <li class="list-disc text-2xl mt-[12px]">Use simple types</li>
+        </Step>
+        <Step fadeUp>
+          <li class="list-disc text-2xl mt-[12px]">Trace your programs</li>
+        </Step>
+        <Step fadeUp>
+          <li class="list-disc text-2xl mt-[12px]">
+            Use compiler warnings and linters
+          </li>
+        </Step>
+      </ul>
+    </div>
+  </Slide>
+
+  <Slide animate class="h-[600px] flex flex-col">
+    <SlideTitle>What are we missing?</SlideTitle>
+    <div class="grow-0 flex gap-4 justify-center mt-[10px]">
+      <svg
+        width="300px"
+        height="250px"
+        viewBox="0 0 24 24"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M7.5 4.5C7.5 3.11929 8.61929 2 10 2C11.3807 2 12.5 3.11929 12.5 4.5V6H13.5C14.8978 6 15.5967 6 16.1481 6.22836C16.8831 6.53284 17.4672 7.11687 17.7716 7.85195C18 8.40326 18 9.10218 18 10.5H19.5C20.8807 10.5 22 11.6193 22 13C22 14.3807 20.8807 15.5 19.5 15.5H18V17.2C18 18.8802 18 19.7202 17.673 20.362C17.3854 20.9265 16.9265 21.3854 16.362 21.673C15.7202 22 14.8802 22 13.2 22H12.5V20.25C12.5 19.0074 11.4926 18 10.25 18C9.00736 18 8 19.0074 8 20.25V22H6.8C5.11984 22 4.27976 22 3.63803 21.673C3.07354 21.3854 2.6146 20.9265 2.32698 20.362C2 19.7202 2 18.8802 2 17.2V15.5H3.5C4.88071 15.5 6 14.3807 6 13C6 11.6193 4.88071 10.5 3.5 10.5H2C2 9.10218 2 8.40326 2.22836 7.85195C2.53284 7.11687 3.11687 6.53284 3.85195 6.22836C4.40326 6 5.10218 6 6.5 6H7.5V4.5Z"
+          stroke="white"
+          stroke-width="0.5"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-dasharray="0 1.5 0"
+        />
+      </svg>
+    </div>
+    <div class="grow flex gap-4 justify-center">
+      <ul class="grow-0 mt-[50px] text-center space-y-4 text-2xl">
+        <Step fadeUp><li>True move semantics in C++? Borrow checker?</li></Step>
+        <Step fadeUp><li>Multiple returns in C++?</li></Step>
+        <Step fadeUp><li>grep + clang-tidy + checks-from-json?</li></Step>
+      </ul>
+    </div>
+  </Slide>
+
+  <!-- How do you figure out what to match? -->
+
+  <!-- cxxConstructExpr(has(cxxStdInitializerListExpr(hasDescendant(initListExpr()))),
+                 hasDeclaration(cxxConstructorDecl(
+                     ofClass(cxxRecordDecl(classTemplateSpecializationDecl(
+                         hasName("::std::vector"),
+                         hasTemplateArgument(0, templateArgument()))))))) -->
 
   <!-- <Slide animate class="h-[600px] flex flex-col">
         <p class="font-bold text-8xl">🪄 Animotion</p>

@@ -1,0 +1,157 @@
+<script lang="ts">
+  import Step from '@lib/components/step.svelte'
+  import { signal } from '@motion'
+
+  const animations = signal(
+    { op1: 0, op2: 0, op3: 0, op4: 0, op5: 0, op6: 0, op7: 0 },
+    { duration: 500 }
+  )
+</script>
+
+<div class="grow flex gap-4 justify-center">
+  <svg
+    class="w-[800px] h-[280px] mt-[60px] mx-auto stroke-white stroke-1 fill-transparent text-sm"
+  >
+    <g transform="translate(-100, 0)">
+      <rect
+        x="200"
+        y="0"
+        width="600"
+        height="400"
+        stroke="none"
+        fill="#3A2C53"
+      />
+      <text
+        x="500"
+        y="10"
+        stroke="none"
+        fill="white"
+        dominant-baseline="hanging"
+        text-anchor="middle"
+        font-size="18"
+      >
+        Copies
+      </text>
+      <rect
+        x="200"
+        y="40"
+        width="400"
+        height="360"
+        stroke="none"
+        fill="#273F5A"
+      />
+      <text
+        x="400"
+        y="50"
+        stroke="none"
+        fill="white"
+        dominant-baseline="hanging"
+        text-anchor="middle"
+        font-size="18"
+      >
+        Shallow
+      </text>
+      <rect
+        x="600"
+        y="40"
+        width="200"
+        height="360"
+        stroke="none"
+        fill="#4D194D"
+      />
+      <text
+        x="700"
+        y="50"
+        stroke="none"
+        fill="white"
+        dominant-baseline="hanging"
+        text-anchor="middle"
+        font-size="18"
+      >
+        Deep (recursive)
+      </text>
+      <g transform="translate(300, 90)">
+        <rect
+          x="-75"
+          y="80"
+          width="150"
+          height="40"
+          rx="10"
+          fill="transparent"
+        />
+        <text
+          x="0"
+          y="100"
+          stroke="none"
+          fill="white"
+          dominant-baseline="middle"
+          text-anchor="middle"
+          font-size="14"
+        >
+          trivially_copyable
+        </text>
+        <rect
+          x="-75"
+          y="130"
+          width="150"
+          height="40"
+          rx="10"
+          fill="transparent"
+        />
+        <text
+          x="0"
+          y="150"
+          stroke="none"
+          fill="white"
+          dominant-baseline="middle"
+          text-anchor="middle"
+          font-size="18"
+        >
+          Scalar copies
+        </text>
+      </g>
+      <g transform="translate(500, 190)">
+        <rect
+          x="-75"
+          y="30"
+          width="150"
+          height="40"
+          rx="10"
+          fill="transparent"
+        />
+        <text
+          x="0"
+          y="50"
+          stroke="none"
+          fill="white"
+          dominant-baseline="middle"
+          text-anchor="middle"
+          font-size="18"
+        >
+          std::move()
+        </text>
+      </g>
+      <g transform="translate(700, 190)">
+        <rect
+          x="-75"
+          y="30"
+          width="150"
+          height="40"
+          rx="10"
+          fill="transparent"
+        />
+        <text
+          x="0"
+          y="50"
+          stroke="none"
+          fill="white"
+          dominant-baseline="middle"
+          text-anchor="middle"
+          font-size="18"
+        >
+          T(const T&)
+        </text>
+      </g>
+    </g>
+  </svg>
+</div>
